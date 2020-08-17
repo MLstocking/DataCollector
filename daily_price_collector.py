@@ -4,9 +4,9 @@ import FinanceDataReader as fdr
 
 '''
 todayPrice2csv 함수 설명
-기능: 오늘 하루 동안의 KRX 종목 주가 데이터를 수집하여 json파일로 저장한다. 
+기능: 오늘 하루 동안의 KRX 종목 주가 데이터를 수집하여 csv파일로 저장한다. 
 '''
-def todayPrice2json():
+def todayPrice2csv():
     # 코드가 실행되는 당일과 작일(KST) 계산
     dateformat = '%Y-%m-%d'
     today = datetime.now(timezone('Asia/Seoul'))
@@ -26,17 +26,11 @@ def todayPrice2json():
         daily_price.rename(columns={'index': 'Date'}, inplace=True)
 
         # csv 파일로 저장
-        # daily_price.to_csv("daily_price_"+today+".csv", index=False)
-
-        # json 파일로 저장
-        daily_price.to_json("daily_price_" + today + ".json", orient='table')
+        # daily_price.to_csv("daily_price_" + today + ".csv", index=False)
+        daily_price.to_csv("daily_price.csv", index=False)
 
     else:
         print("No data occurs on weekends.")
 
-# def isChangeList():
-#     company_info = fdr.StockListing('KRX')
-
-
 if __name__ == '__main__':
-    todayPrice2json()
+    todayPrice2csv()
