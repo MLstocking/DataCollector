@@ -43,8 +43,10 @@ def daily_price_download(market ,start_date, end_date):
 
     # daily_price[['Open','High','Low', 'Close', 'Volume']].astype(int)
     print(f'daily_price shape:{daily_price.shape}')
-    daily_price.to_csv("daily_price.csv", index=False)
+    # daily_price.to_csv("daily_price.csv", index=False)
+    daily_price.to_json("daily_price_record.json", orient='records')
     print("daily_price Download complete.")
+
 
 
 if __name__ == "__main__":
