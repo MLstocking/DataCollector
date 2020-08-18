@@ -2,7 +2,10 @@ import FinanceDataReader as fdr
 import pandas as pd
 from tqdm import tqdm
 
-'''company_info'''
+'''
+company_info_download 함수
+기능: 현재 market에 포함된 종목 리스트를 반환합니다.
+'''
 def company_info_download(market):
     if market not in ['KRX', 'KOSPI', 'KOSDAG', 'KONEX']:
         print("Invalid input value.")
@@ -20,7 +23,10 @@ def company_info_download(market):
     return company_info['code'].tolist()
 
 
-'''period_price'''
+'''
+period_price_download 함수
+기능: market에 포함된 종목들의 특정 기간 동안의 주가 데이터를 csv파일로 저장합니다.
+'''
 def period_price_download(market ,start_date, end_date):
     code = company_info_download(market)
     period_price = []
@@ -39,11 +45,10 @@ def period_price_download(market ,start_date, end_date):
     period_price.rename(columns={'index':'Date'}, inplace=True)
 
     # daily_price[['Open','High','Low', 'Close', 'Volume']].astype(int)
-    print(f'daily_price shape:{period_price.shape}')
+    print(f'period_price shape:{period_price.shape}')
     period_price.to_csv("period_price"+start_date+'_'+end_date+".csv", index=False)
 
     print("period_price Download complete.")
-
 
 
 if __name__ == "__main__":

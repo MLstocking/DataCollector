@@ -10,7 +10,7 @@ client = CosmosClient(config["endpoint"], config["primarykey"])
 
 database_name = 'MLStocking'
 database = client.get_database_client(database_name)
-container_name = 'daily_stock_price'
+container_name = 'daily_price'
 container = database.get_container_client(container_name)
 
 # Download and read csv file
