@@ -13,12 +13,23 @@ database = client.get_database_client(database_name)
 container_name = 'daily_price'
 container = database.get_container_client(container_name)
 
+# Get the number of items in daily_price container
+continued_items = container.query_items(
+    query='SELECT VALUE COUNT(1) FROM daily_price',
+    enable_cross_partition_query=True)
+
+for item in continued_items:
+    records_cnt = json.dumps(item, indent=True)
+
+item_cnt = int(records_cnt)
+
 # Download and read csv file
-df = pd.read_csv('daily_price.csv')
-# Reset index - creates a column called 'index'
-df = df.reset_index()
+df = pd.read_csv('period_price.csv')
+
 # Cosmos DB needs one column named 'id'.
-df = df.rename(columns={'index':'id'})
+new_id = [x for x in range(item_cnt, item_cnt+len(df))]
+df['id'] = new_id
+
 # Convert the id column to a string - this is a document database.
 df['id'] = df['id'].astype(str)
 
