@@ -54,7 +54,14 @@
 ------------
 
 ### insert_daily_price.py
- daily_price_collector.py의 결과물인 CSV파일을 create_DB_Collection.py의 결과물인 azure cosmosdb의 database안 container에 적재하는 코드 입니다. 
+ daily_price_collector.py의 결과물인 CSV파일을 create_DB_Collection.py의 결과물인 azure cosmosdb의 database안 container에 적재하는 코드 입니다.  
 
-
+본인의 end point값과 primary key 값을 넣어주면 azure cosmosdb container에 CSV파일 데이터가 적재됩니다.  
+ 
+ - 사용법 
+ 1. 본인의 end point값과 primary key 값을 config에 넣습니다.
+ 2. 코드를 실행할 서버에서 cmd또는 terminal에 다음과 같은 명령어를 입력합니다.
+ ```
+ $python3 insert_daily_price.py
+ ```   
 
