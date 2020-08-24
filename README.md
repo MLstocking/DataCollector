@@ -13,9 +13,9 @@
  - 사용법 
  1. 본인의 end point값과 primary key 값을 config에 넣습니다.
  2. 코드를 실행할 서버에서 cmd또는 terminal에 다음과 같은 명령어를 실행합니다.
- '''
+ ```
  $python3 create_DB_Collection.py
- ''' 
+ ``` 
 
 
 ### daily_price_collector.py
