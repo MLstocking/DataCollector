@@ -8,7 +8,9 @@
 ------------
 
 ### create_DB_Collection.py
- azure cosmosdb에 Database를 생성하고 container를 생성하는 코드 입니다.
+ azure cosmosdb에 Database를 생성하고 container를 생성하는 코드 입니다.  
+ 
+ 
  본인의 end point값과 primary key 값을 넣어주면 azure cosmosdb에 Database와 container가 생성됩니다.
  
  - 사용법 
