@@ -6,13 +6,13 @@ from azure.cosmos import CosmosClient
 import json
 import sys
 
-# DART API key 입력
-api_key = ""
-dart = OpenDartReader(api_key)
-
 
 # 여러 해의 분기별 보고서 concatenation
 def concat_years_report(code, opt, start, end):
+    # DART API key 입력
+    api_key = ""
+    dart = OpenDartReader(api_key)
+
     start_year = int(start[:4]) - 1
     end_year = int(end[:4])
     dividend = []
@@ -28,6 +28,10 @@ def concat_years_report(code, opt, start, end):
 
 # 여러 해의 분기별 재무 정보 concatenation
 def concat_years_fs(code, start, end):
+    # DART API key 입력
+    api_key = ""
+    dart = OpenDartReader(api_key)
+
     start_year = int(start[:4]) - 1
     end_year = int(end[:4])
     fs = []
