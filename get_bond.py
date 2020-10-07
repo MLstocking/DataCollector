@@ -3,7 +3,11 @@ import json
 import sys
 from azure.cosmos import CosmosClient
 
-def get_bond(start, end):
+
+def get_bond(argv):
+    start = argv[0]
+    end = argv[1]
+
     df = investpy.get_bond_historical_data(bond='South Korea 10Y', from_date=start, to_date=end)
     df.reset_index(level=0, inplace=True)
     df = df[['Date', 'Close']]
