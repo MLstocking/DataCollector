@@ -15,8 +15,8 @@ def insert_fs(df):
         df[col] = df[col].astype(str)
 
     config = {
-        "endpoint": "https://jang.documents.azure.com:443/",
-        "primarykey": "xD4e14e4B9hHFCnqwuTqIz9CkKU3APSU5Wcj9KD0tsWaphFBwTYLY9Wr97ks0Q0PBcRfbaqUA9kreBKAMS81nQ=="
+        "endpoint": "",
+        "primarykey": ""
     }
 
     client = CosmosClient(config["endpoint"], config["primarykey"])
